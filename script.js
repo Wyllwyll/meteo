@@ -48,6 +48,7 @@ function cityName(city_name) {
                 speed: response.wind.speed,
                 deg: response.wind.deg,
             }
+            affichage(info)
             /* console.log(response.main.feels_like);
             console.log(response.main.temp_max);
             console.log(response.main.temp_min);
@@ -63,22 +64,47 @@ function cityName(city_name) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+function affichage(info) {
+    changerIcone(info.icon);
+    changerNom(info.name);
+    changerInfo(info);
+}
 
 function changerIcone(iconeName) {
-    let icone = document.getElementById("icone");
+    const icone = document.getElementById("icone");
     icone.setAttribute("src", `http://openweathermap.org/img/wn/${iconeName}@2x.png`);
 }
 
 
-function affichage(info){
-    changerIcone(info.icon)
-    
+function changerNom(newValue) {
+    const nomElement = document.getElementById("nomVille");
+    nomElement.textContent = newValue;
+}
+
+function changerInfo(newValue) {
+    const tempRess = document.getElementById("tempRessentie");
+    tempRess.textContent = newValue.feels_like;
+
+    const tempMin = document.getElementById("tempMin");
+    tempMin.textContent = newValue.temp_min;
+
+    const tempMax = document.getElementById("tempMax");
+    tempMax.textContent = newValue.temp_max;
+
+    const humidity = document.getElementById("humidity");
+    humidity.textContent = newValue.humidity;
+
+    const speed = document.getElementById("speed");
+    speed.textContent = newValue.speed;
+
+
+    const deg = document.getElementById("deg");
+    deg.textContent = newValue.deg;
 }
 
 
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
