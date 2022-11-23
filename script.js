@@ -6,16 +6,6 @@
 
 const API_clef = "7a1f5b652559ed9287054e3d28a24ef6"
 
-/* let info = {
-    icon: "",
-    name: "",
-    feels_like: 0,
-    temp_min: 0,
-    temp_max: 0,
-    humidity: 0,
-    speed: 0,
-    deg: 0,
-} */
 
 const inputButton = document.getElementById("recherche_button");
 const inputEntry = document.getElementById("zone_recherche");
@@ -81,6 +71,7 @@ function changerNom(newValue) {
     nomElement.textContent = newValue;
 }
 
+/**comment */
 function changerInfo(newValue) {
     const tempRess = document.getElementById("tempRessentie");
     tempRess.textContent = newValue.feels_like;
@@ -101,8 +92,6 @@ function changerInfo(newValue) {
     const deg = document.getElementById("deg");
     deg.textContent = newValue.deg;
 }
-
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
