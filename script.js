@@ -13,7 +13,6 @@ inputButton.addEventListener("click", () => {
     cityName(inputEntry.value);
 })
 
-
 const form = document.getElementById("recherche");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -39,15 +38,6 @@ function cityName(city_name) {
                 deg: response.wind.deg,
             }
             affichage(info)
-            /* console.log(response.main.feels_like);
-            console.log(response.main.temp_max);
-            console.log(response.main.temp_min);
-            console.log(response.main.humidity);
-            console.log(response.wind.speed);
-            console.log(response.wind.deg); 
-            console.log(response.weather[0].icon);*/
-            //changerIcone(response.weather[0].icon);
-
         })
 }
 
@@ -55,43 +45,16 @@ function cityName(city_name) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function affichage(info) {
-    changerIcone(info.icon);
-    changerNom(info.name);
-    changerInfo(info);
+    document.getElementById("icone").setAttribute("src", `http://openweathermap.org/img/wn/${info.icon}@2x.png`);
+    document.getElementById("nomVille").textContent = info.name;
+    document.getElementById("tempRessentie").textContent = info.feels_like;
+    document.getElementById("tempMin").textContent = info.temp_min;
+    document.getElementById("tempMax").textContent = info.temp_max;
+    document.getElementById("humidity").textContent = info.humidity;
+    document.getElementById("speed").textContent = info.speed;
+    document.getElementById("deg").textContent = info.deg;
 }
 
-function changerIcone(iconeName) {
-    const icone = document.getElementById("icone");
-    icone.setAttribute("src", `http://openweathermap.org/img/wn/${iconeName}@2x.png`);
-}
-
-
-function changerNom(newValue) {
-    const nomElement = document.getElementById("nomVille");
-    nomElement.textContent = newValue;
-}
-
-/**comment */
-function changerInfo(newValue) {
-    const tempRess = document.getElementById("tempRessentie");
-    tempRess.textContent = newValue.feels_like;
-
-    const tempMin = document.getElementById("tempMin");
-    tempMin.textContent = newValue.temp_min;
-
-    const tempMax = document.getElementById("tempMax");
-    tempMax.textContent = newValue.temp_max;
-
-    const humidity = document.getElementById("humidity");
-    humidity.textContent = newValue.humidity;
-
-    const speed = document.getElementById("speed");
-    speed.textContent = newValue.speed;
-
-
-    const deg = document.getElementById("deg");
-    deg.textContent = newValue.deg;
-}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
